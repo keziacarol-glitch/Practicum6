@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuizPulse Positioning</title>
+<style>
+body {
+  font-family: Arial;
+  background-color: lightyellow;
+  margin: 0;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: purple;
+  color: white;
+  padding: 10px;
+}
+.static {
+  position: static;
+  background-color: lightgray;
+  padding: 10px;
+}
+.relative {
+  position: relative;
+  top: 10px;
+  left: 20px;
+  background-color: pink;
+  padding: 10px;
+}
+.parent {
+  position: relative;
+  background-color: lightblue;
+  height: 80px;
+  margin: 20px 0;
+}
+.child {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: purple;
+  color: white;
+  padding: 10px;
+}
+.fixed {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: gold;
+  padding: 10px;
+}
+.stack {
+  position: relative;
+  height: 100px;
+}
+.red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 80px;
+  background-color: red;
+  z-index: 2;
+}
+.blue {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  width: 100px;
+  height: 80px;
+  background-color: blue;
+  z-index: 1;
+}
+.quad {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 300px;
+}
+.q {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.q1 { background-color: pink; }
+.q2 { background-color: lightblue; }
+.q3 { background-color: yellow; }
+.q4 { background-color: lightgreen; }
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 3px solid purple;
+  padding: 20px;
+  z-index: 5;
+}
+@media (max-width: 600px) {
+  .quad {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .q {
+    height: 60px;
+  }
+  .center {
+    position: static;
+    transform: none;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+<div class="sticky">QuizPulse (sticky)</div>
+<div class="static">This is static</div>
+<div class="relative">This is relative</div>
+<div class="parent">
+  Parent is relative
+  <div class="child">Absolute</div>
+</div>
+<div class="stack">
+  <div class="red">z-index 2</div>
+  <div class="blue">z-index 1</div>
+</div>
+<h3 align="center">Quiz Arena</h3>
+<div class="quad">
+  <div class="q q1">Score</div>
+  <div class="q q2">Streak</div>
+  <div class="q q3">Timer</div>
+  <div class="q q4">Badges</div>
+  <div class="center">Question</div>
+</div>
+<div class="fixed">Play Now (fixed)</div>
+<div style="height:500px"></div>
+</body>
+</html>
